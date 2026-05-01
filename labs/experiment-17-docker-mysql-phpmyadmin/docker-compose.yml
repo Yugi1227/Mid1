@@ -1,25 +1,26 @@
 services:
   mysql:
     image: mysql:latest
-    container_name: mysql-container
+    container_name: exp17-mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: mydb
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
-      - mysql_data:/var/lib/mysql
+      - exp17_mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin-container
+    container_name: exp17-phpmyadmin
     depends_on:
       - mysql
     environment:
       PMA_HOST: mysql
       PMA_PORT: 3306
     ports:
-      - "8080:80"
+      - "8081:80"
 
 volumes:
-  mysql_data:
+  exp17_mysql_data:

@@ -1,33 +1,23 @@
-# Experiment 14: Deploy Simple HTML Page with Docker (Nginx)
+# Experiment 14: Run HTML Page with Docker
 
-## Step-by-step Commands (PowerShell)
+## Aim
+Build and run a Docker image that serves a simple HTML page using Nginx.
+
+## Run
 
 ```powershell
-# 1) Move to this experiment folder
-cd .\labs\experiment-14-docker-html-nginx
-
-# 2) Build image
-docker build -t my-html-app .
-
-# 3) Run container and map localhost:8080 to container:80
-docker run -d -p 8080:80 --name my-html-app-container my-html-app
-
-# 4) Verify container is running
-docker ps
+.\run.ps1
 ```
 
-Open http://localhost:8080
+## Open
 
-## Stop, Remove, and Optional Cleanup
+Visit `http://localhost:8080`.
+
+## Stop
 
 ```powershell
-# Stop and remove container
-docker stop my-html-app-container
-docker rm my-html-app-container
-
-# Optional: remove image
-docker rmi my-html-app
+docker rm -f exp14-html-nginx
 ```
 
 ## Expected Result
-- Browser shows the page served by Nginx from inside Docker.
+The browser displays `Hello, World!`.

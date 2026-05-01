@@ -1,73 +1,28 @@
-# Experiment 17: Deploy MySQL with phpMyAdmin (Docker)
+# Experiment 17: MySQL with phpMyAdmin
 
-## Option A: Docker Compose (Recommended)
+## Aim
+Run MySQL and phpMyAdmin together using Docker Compose.
+
+## Run
 
 ```powershell
-# 1) Move to this experiment folder
-cd .\labs\experiment-17-docker-mysql-phpmyadmin
-
-# 2) Start services
-docker compose up -d
-
-# 3) Verify services
-docker compose ps
+.\run.ps1
 ```
 
-Open http://localhost:8080
+## Open
+
+Visit `http://localhost:8081`.
 
 Login:
-- Username: root
-- Password: root
 
-Run this SQL in phpMyAdmin (SQL tab):
+- Username: `root`
+- Password: `root`
 
-```sql
-USE mydb;
-CREATE TABLE students (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  name VARCHAR(50),
-  age INT
-);
-INSERT INTO students (name, age) VALUES ('Alice', 21), ('Bob', 22);
-SELECT * FROM students;
-```
-
-Stop and cleanup:
+## Stop
 
 ```powershell
 docker compose down
-
-# Optional: remove named volume too
-docker compose down -v
-```
-
-## Option B: Manual docker commands
-
-```powershell
-# 1) Create network
-docker network create mynetwork
-
-# 2) Start MySQL container
-docker run --name mysql-container --network mynetwork -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=mydb -d mysql:latest
-
-# 3) Start phpMyAdmin container
-docker run --name phpmyadmin-container --network mynetwork -d -e PMA_HOST=mysql-container -p 8080:80 phpmyadmin/phpmyadmin
-
-# 4) Verify containers
-docker ps
-
-# 5) Open phpMyAdmin in browser
-# http://localhost:8080
-```
-
-Manual cleanup:
-
-```powershell
-docker stop mysql-container phpmyadmin-container
-docker rm mysql-container phpmyadmin-container
-docker network rm mynetwork
 ```
 
 ## Expected Result
-- MySQL and phpMyAdmin run together.
-- You can create a table and query rows from phpMyAdmin.
+phpMyAdmin opens and shows the `mydb` database with a sample `students` table.

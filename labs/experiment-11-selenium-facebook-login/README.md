@@ -6,14 +6,19 @@ Use your own test account. Do not hardcode credentials in code.
 ## Run (PowerShell)
 
 ```powershell
-cd ..\experiment-11-selenium-facebook-login
-pip install selenium
-$env:FB_EMAIL="your_email@example.com"
-$env:FB_PASSWORD="your_password"
-python facebook_login.py
+.\run.ps1
+```
+
+Set credentials before running:
+
+```powershell
+$env:FB_EMAIL="testinggroung1227@gamil"
+$env:FB_PASSWORD="testtest1227"
+.\run.ps1
 ```
 
 ## Expected Result
 - Edge opens Facebook login page.
 - Credentials are entered and login is attempted.
 - Script prints current URL and closes browser.
+com"

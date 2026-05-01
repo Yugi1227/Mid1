@@ -3,10 +3,10 @@
 ## Run
 
 ```powershell
-cd ..\experiment-10-selenium-google-inspect
-pip install selenium
-python inspect_google_element.py
+.\run.ps1
 ```
+
+If `msedgedriver.exe` is not in the project root, set `EDGE_DRIVER_PATH` first.
 
 ## Expected Result
 - Edge opens Google homepage.

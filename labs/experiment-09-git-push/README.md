@@ -7,6 +7,14 @@ Push committed changes from a local Git repository to a remote GitHub repository
 - Git installed
 - GitHub account
 
+## Runnable Local Demo
+
+This demo creates a local bare repository and pushes to it. It proves the same Git workflow without needing GitHub credentials.
+
+```powershell
+.\run.ps1
+```
+
 ## Commands (Windows PowerShell)
 
 ```powershell
@@ -35,3 +43,4 @@ git push -u origin main
 ## Expected Result
 - Repository appears on GitHub.
 - file.txt is visible in the main branch.
+- Local demo prints a clean `main...origin/main` status after push.

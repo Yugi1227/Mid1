@@ -1,0 +1,15 @@
+{
+  "To Do": [
+    "Create frontend UI",
+    "Write login API"
+  ],
+  "In Progress": [
+    "Set up database schema"
+  ],
+  "Review": [
+    "Check test cases"
+  ],
+  "Done": [
+    "Create project repository"
+  ]
+}

@@ -1,40 +1,26 @@
-# Experiment 15: Build Alpine Image with Nano
+# Experiment 15: Alpine Image with Nano
 
-## Step-by-step Commands (PowerShell)
+## Aim
+Build an Alpine Docker image with the Nano text editor installed.
+
+## Run
 
 ```powershell
-# 1) Move to this experiment folder
-cd .\labs\experiment-15-docker-alpine-nano
-
-# 2) Build image
-docker build -t alpine-nano .
-
-# 3) Run container interactively
-docker run -it --name nano-container alpine-nano
+.\run.ps1
 ```
 
-## Commands Inside Container
+## Try Nano Interactively
+
+```powershell
+docker run -it --rm exp15-alpine-nano
+```
+
+Inside the container:
 
 ```sh
-# Verify nano installation
 nano --version
-
-# Create and edit file
-nano testfile.txt
-
-# Verify saved content
-cat testfile.txt
-
-# Exit container
 exit
 ```
 
-## Cleanup (PowerShell)
-
-```powershell
-docker rm nano-container
-docker rmi alpine-nano
-```
-
 ## Expected Result
-- Nano is installed and usable in the Alpine-based container.
+Nano version details are displayed.
